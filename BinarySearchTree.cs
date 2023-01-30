@@ -15,6 +15,53 @@ namespace BinaryTree
             Root = InsertItem(Root, key, value);
         }
 
+
+        public void PrintPostOrderTraversal()
+        {
+            PostOrderTraversal(Root);
+        }
+
+        private void PostOrderTraversal(TreeNode node)
+        {
+            if (node != null)
+            {
+                PostOrderTraversal(node.LeftChild);
+                PostOrderTraversal(node.RightChild);
+                Console.WriteLine(node.Key + " " + node.Value);
+            }
+        }
+
+        public void PrintPreOrderTraversal()
+        {
+            PreOrderTraversal(Root);
+        }
+
+        private void PreOrderTraversal(TreeNode node)
+        {
+            if (node != null)
+            {
+                Console.WriteLine(node.Key + " " + node.Value);
+                PreOrderTraversal(node.LeftChild);
+                PreOrderTraversal(node.RightChild);
+            }
+        }
+
+
+        public void PrintInOrderTravelsal()
+        {
+            InOrderTraversal(Root);
+        }
+
+        private void InOrderTraversal (TreeNode node)
+        {
+            if(node != null)
+            {
+                InOrderTraversal(node.LeftChild);
+                Console.WriteLine(node.Key + " " + node.Value);
+                InOrderTraversal(node.RightChild);
+            }
+        }
+
         public TreeNode InsertItem(TreeNode node, int key, string value)
         {
             TreeNode newNode = new TreeNode(key, value);
@@ -36,6 +83,7 @@ namespace BinaryTree
             }
             return node;
         }
+
 
         public string Find(int key)
         {
